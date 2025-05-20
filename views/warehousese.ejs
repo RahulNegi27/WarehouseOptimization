@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs') %>
+
+<title>Warehouse</title>
+<link rel="stylesheet" href="/styles/common.css">
+<link rel="stylesheet" href="/styles/ware.css">
+
+
+<h1 class="table">List of Warehouse : </h1>
+
+<table class="warehouse-table">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Warehouse Name</th>
+            <th>Usable Space (sq ft)</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% warehouses.forEach(warehouse => { %>
+          <tr>
+            <td><%= warehouse.sno %></td>
+            <td><%= warehouse.name %></td>
+            <td><%= warehouse.usable_space %></td>
+            <td><a href="/manageInv?warehouseName=<%= warehouse.name %>">View</a></td>
+          </tr>
+        <% }) %>
+      </tbody>
+</table>
+<%- include('partials/footer.ejs') %>
+

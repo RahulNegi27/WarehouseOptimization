@@ -1,0 +1,125 @@
+<%- include('partials/header.ejs') %>
+
+<title>Main Page</title>
+<link rel="stylesheet" href="/styles/makeInv.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+<div class="main">
+
+
+  <div class="title">
+    <h1>Warehouse Configuration Setup</h1>
+    <img src="/images/greenColour.png" alt="green" />
+  </div>
+
+ 
+  <form action="/warehouse" method="POST" id="formm">
+
+    <!-- Warehouse Dimensions -->
+    <div class="WarehouseDimensions">
+      <div class="heading"><h2>Warehouse Dimensions</h2></div>
+      <div class="mainForm">
+        <div class="same first">
+          <div class="name">
+            <label>Warehouse Name:</label>
+            <input type="text" name="warehouseName" required />
+          </div>
+          <div class="width">
+            <label>Width of Warehouse:</label>
+            <input type="number" name="WidthWarehouse" required />
+          </div>
+        </div> 
+        <div class="same second">
+          <div class="length">
+            <label>Length of Warehouse:</label>
+            <input type="number" name="lengthWarehouse" required />
+          </div>
+          <div class="height">
+            <label>Height of Warehouse:</label>
+            <input type="number" name="HeightWarehouse" required />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Racks Details -->
+    <div class="RacksDetails">
+      <div class="heading"><h2>Racks Details</h2></div>
+      <div class="mainForm">
+        <div class="same first">
+          <div class="name">
+            <label>Number of Racks:</label>
+            <input type="number" name="numberOfRacks" required />
+          </div>
+          <div class="width">
+            <label>Width of Racks:</label>
+            <input type="number" name="WidthOfRacks" required />
+          </div>
+        </div>
+        <div class="same second">
+          <div class="length">
+            <label>Length of Racks:</label>
+            <input type="number" name="LengthOfRacks" required />
+          </div>
+          <div class="height">
+            <label>Height of Racks:</label>
+            <input type="number" name="HeightOfRacks" required />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bins Details -->
+    <div class="BinsDetails">
+      <div class="heading"><h2>Bins Details</h2></div>
+      <div class="mainForm">
+        <div class="same first">
+          <div class="name">
+            <label>Length of Bins:</label>
+            <input type="number" name="LengthOfBins" required />
+          </div>
+          <div class="width">
+            <label>Width of Bins:</label>
+            <input type="number" name="WidthOfBins" required />
+          </div>
+        </div>
+        <div class="same second">
+          <div class="length">
+            <label>Height of Bins:</label>
+            <input type="number" name="HeightOfBins" required />
+          </div>
+          <div class="height">
+            <label>Capacity of Bins:</label>
+            <input type="number" name="CapacityOfBins" required />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit & Reset Buttons -->
+    <div class="Buttons">
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </div>
+
+   <p class="Note">Note : All the Dimensions are in meter</p>
+
+  </form>
+ 
+</div>
+
+
+<script>
+  const inputs = document.querySelectorAll('form input');
+  inputs.forEach((input, i) => {
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const next = inputs[i + 1];
+        if (next) next.focus();
+      }
+    });
+  });
+</script>
+
+<%- include('partials/footer.ejs') %>

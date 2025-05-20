@@ -1,0 +1,48 @@
+<%- include('partials/header.ejs') %>
+<title>Product List</title>
+<link rel="stylesheet" href="/styles/products.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product List</title>
+  <link rel="stylesheet" href="/css/productList.css">
+</head>
+<body>
+
+  <h1>Product List</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Rack ID</th>
+        <th>Bin ID</th>
+        <th>Quantity</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products
+          .sort((a, b) => {
+            const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+            return priorityOrder[a.priority] - priorityOrder[b.priority];
+          })
+          .forEach(product => { %>
+            <tr>
+          <td><%= product.product_id %></td>
+          <td><%= product.name %></td>
+          <td><%= product.rack_id %></td>
+          <td><%= product.bin_id %></td>
+          <td><%= product.quantity %></td>
+          <td><%= product.priority %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+</body>
+</html>
+
+<%-include('partials/footer.ejs') %>

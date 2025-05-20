@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+
+
+.table {
+  word-spacing: 0.5rem;
+  font-size: 3.6rem;
+  text-align: center;
+  margin: 3rem 0;
+  color: var(--blueColour);
+  font-family: CaveatMedium;
+}
+
+.warehouse-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.warehouse-table th,
+.warehouse-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.warehouse-table th {
+  background-color: #f2f2f2;
+}
+
+.warehouse-table a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.warehouse-table a:hover {
+  text-decoration: underline;
+}
